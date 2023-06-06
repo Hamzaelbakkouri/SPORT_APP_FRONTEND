@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
-import { RoutingWithSlashes } from '..';
 import { Rating } from '@mui/material';
 import Navbar from '@/components/Navbar/Navbar';
 import { SideSports } from '@/components/Sidebar/SideBar';
@@ -12,14 +11,10 @@ import Contact from '@/components/Section/Contact';
 import SallelongDescriptions from '@/components/Section/salles/SalleLongDescription';
 import Connect from '@/components/Section/Connect';
 import Gallery from '@/components/Section/Gallery';
+import RoutingWithSlashes from '@/components/Path/Path';
+import { IGym } from 'Types';
 
-export interface IGym {
-    name?: string;
-    description?: string;
-    image?: string;
-    longDescription?: string;
-    gallery?: string[];
-}
+
 
 const SallePage = () => {
 

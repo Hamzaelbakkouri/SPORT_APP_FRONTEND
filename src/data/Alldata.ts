@@ -1,4 +1,4 @@
-import { PlaceData, salleP } from "Types";
+import { PlaceData } from "Types";
 
 export interface IGym {
         name: string;

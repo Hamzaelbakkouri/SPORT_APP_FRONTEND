@@ -78,7 +78,7 @@ export function AllSalleSection() {
     React.useEffect(() => {
         (async () => {
             setLoading(v => !v)
-            const res = await fetch('/api/getData');
+            const res = await fetch('/api/getAllGyms');
             const result = await res.json();
             setAllGym(result)
             setLoading(v => !v)
@@ -172,40 +172,42 @@ export function AllSportsSection() {
         <div>
             {SportNames.map((e, idx) => {
                 return (
-                    <Link passHref href={`/sports/${e}`} key={idx}>
-                        <div className=" w-full lg:w-full lg:flex p-4 cursor-pointer" >
-                            <div className="h-48 lg:h-auto lg:w-96 bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style={{
-                                backgroundImage: "url(" + "https://static.yabiladi.com/files/articles/33f576109f0e0fabe62cf1f079fc652120230411182531.jpg" + ")",
-                                backgroundPosition: 'center',
-                                backgroundSize: 'cover',
-                                backgroundRepeat: 'no-repeat'
-                            }} title="Test App">
-                            </div>
-                            <div className="border-r w-full border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                                <div className="mb-8">
-                                    <div className="text-gray-900 font-bold text-xl mb-2">{e}</div>
-                                    <p className="text-gray-700 text-base">{e}</p>
-                                    <Rating
-                                        name="simple-controlled"
-                                        value={value}
-                                        onChange={(event, newValue) => {
-                                            setValue(newValue);
-                                        }}
-                                    />
+                    <div key={idx}>
+                        <Link passHref href={`/sports/${e}`}>
+                            <div className=" w-full lg:w-full lg:flex p-4 cursor-pointer" >
+                                <div className="h-48 lg:h-auto lg:w-96 bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style={{
+                                    backgroundImage: "url(" + "https://static.yabiladi.com/files/articles/33f576109f0e0fabe62cf1f079fc652120230411182531.jpg" + ")",
+                                    backgroundPosition: 'center',
+                                    backgroundSize: 'cover',
+                                    backgroundRepeat: 'no-repeat'
+                                }} title="Test App">
                                 </div>
-                                <div className="flex items-center">
-                                    <img className="w-10 h-10 rounded-full mr-4" src="https://static.yabiladi.com/files/articles/33f576109f0e0fabe62cf1f079fc652120230411182531.jpg" alt="Avatar of Jonathan Reinink" />
-                                    <div className="text-sm">
-                                        <p className="text-gray-900 leading-none">Hamza el bakkouri</p>
-                                        <p className="text-gray-600">Aug 18</p>
+                                <div className="border-r w-full border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                                    <div className="mb-8">
+                                        <div className="text-gray-900 font-bold text-xl mb-2">{e}</div>
+                                        <p className="text-gray-700 text-base">{e}</p>
+                                        <Rating
+                                            name="simple-controlled"
+                                            value={value}
+                                            onChange={(event, newValue) => {
+                                                setValue(newValue);
+                                            }}
+                                        />
+                                    </div>
+                                    <div className="flex items-center">
+                                        <img className="w-10 h-10 rounded-full mr-4" src="https://static.yabiladi.com/files/articles/33f576109f0e0fabe62cf1f079fc652120230411182531.jpg" alt="Avatar of Jonathan Reinink" />
+                                        <div className="text-sm">
+                                            <p className="text-gray-900 leading-none">Hamza el bakkouri</p>
+                                            <p className="text-gray-600">Aug 18</p>
+                                        </div>
+                                    </div>
+                                    <div className="p-4">
+                                        <ButtonBox field="GO CHECK" href={`/sports/${e}`} />
                                     </div>
                                 </div>
-                                <div className="p-4">
-                                    <ButtonBox field="GO CHECK" href={`/sports/${e}`} />
-                                </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                 )
             })}
         </div>

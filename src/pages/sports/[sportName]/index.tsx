@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
-import { RoutingWithSlashes } from '..';
+import RoutingWithSlashes from '@/components/Path/Path';
 import { Rating } from '@mui/material';
 import Navbar from '@/components/Navbar/Navbar';
 import { SideSalles } from '@/components/Sidebar/SideBar';
@@ -11,14 +11,11 @@ import axios from 'axios';
 import Contact from '@/components/Section/Contact';
 import SallelongDescriptions from '@/components/Section/salles/SalleLongDescription';
 import Connect from '@/components/Section/Connect';
+import { SportI } from 'Types';
 
-export interface SportI {
-    name?: string;
-    image?: string;
-    longDescription?: string;
-}
 
-const City = () => {
+
+const Sports = () => {
     const { query, asPath } = useRouter();
     const { sportName }: any = query;
     const [AllSports, setAllSports] = useState<SportI>();
@@ -145,12 +142,9 @@ const City = () => {
                     </div>
                 </div>
             </div>
-
-            <div>
-                <Contact />
-            </div>
+            <Contact />
         </>
     )
 }
 
-export default City;
+export default Sports;

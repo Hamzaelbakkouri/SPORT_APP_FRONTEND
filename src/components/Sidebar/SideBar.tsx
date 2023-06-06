@@ -44,7 +44,7 @@ export function SideSports() {
     React.useEffect(() => {
         (async () => {
             setLoading(v => !v)
-            const res = await fetch('/api/getData/');
+            const res = await fetch('/api/getAllGyms/');
             const result = await res.json();
             setAllGym(result)
             setLoading(v => !v)
